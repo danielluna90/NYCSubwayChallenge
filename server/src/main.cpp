@@ -2,8 +2,9 @@
 #include <memory>
 #include <string>
 
-#include "commands/command.h"
-#include "commands/parser.h"
+#include "terminal/command.h"
+#include "terminal/commands.h"
+#include "terminal/parser.h"
 
 int main() {
     CommandParser commandParser;
