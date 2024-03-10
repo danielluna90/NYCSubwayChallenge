@@ -6,11 +6,9 @@
 #include "commands/parser.h"
 
 int main() {
-    bool shouldExit = false;
-
     CommandParser commandParser;
 
-    while (!shouldExit) {
+    while (true) {
         std::string input;
 
         printf("> ");
