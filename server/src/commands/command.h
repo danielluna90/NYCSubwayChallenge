@@ -37,7 +37,7 @@ public:
         : Command("Status", data) {};
 
     void executeCommand() override {
-        printf("Status\n");
+        printf("Subsystems:\n");
         printf("   API Server: %s\n", true ? "Active" : "Not Active");
         printf("\nOther Information\n");
         printf("  Initialized: %s\n", true ? "Yes" : "No");
