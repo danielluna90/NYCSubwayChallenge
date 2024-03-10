@@ -3,14 +3,14 @@
 
 char const DELIMITER = ' ';
 
-Command CommandParser::parse(std::string const& str) {
+CommandData CommandParser::parse(std::string const& str) {
     bool isFirst = true;
     size_t pos = 0;
 
     std::stringstream ss(str);
     std::string token;
 
-    Command command;
+    CommandData command;
     command.type = COMMAND_UNKNOWN;
     command.args = {};
 
@@ -18,8 +18,10 @@ Command CommandParser::parse(std::string const& str) {
         if (isFirst) {
             command.type = getCommandType(token);
 
-            if (command.type == COMMAND_UNKNOWN)
+            if (command.type == COMMAND_UNKNOWN) {
+                command.args.push_back(token);
                 break;
+            }
 
             isFirst = false;
         } else {

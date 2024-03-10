@@ -16,14 +16,14 @@ enum CommandType {
     COMMAND_UNKNOWN,
 };
 
-struct Command {
+struct CommandData {
     CommandType type;
     std::vector<std::string> args;
 };
 
 class CommandParser {
 public:
-    Command parse(std::string const& str);
+    CommandData parse(std::string const& str);
 
 private:
     CommandType getCommandType(std::string const& str);

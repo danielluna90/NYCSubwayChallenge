@@ -1,6 +1,8 @@
 #include <iostream>
+#include <memory>
 #include <string>
 
+#include "commands/command.h"
 #include "commands/parser.h"
 
 int main() {
@@ -14,29 +16,18 @@ int main() {
         printf("> ");
         std::getline(std::cin, input);
 
-        Command command = commandParser.parse(input);
+        CommandData commandData = commandParser.parse(input);
+        std::unique_ptr<Command> command = std::make_unique<UnknownCommand>(commandData);
 
-        if (command.type == COMMAND_STATUS) {
-            printf("Status\n");
-            printf("   API Server: %s\n", true ? "Active" : "Not Active");
-            printf("\nOther Information\n");
-            printf("  Initialized: %s\n", true ? "Yes" : "No");
-            printf("         Mode: %s\n", "Run Mode / Simulation Mode");
-        } else if (command.type == COMMAND_EXIT) {
-            exit(1);
-        } else if (command.type == COMMAND_HELP) {
-            printf("NYC Subway Challenge Server - Command Help\n");
-
-            printf("\nInformation Commands:\n");
-            printf("  status              Print the current status of different aspects of the server\n");
-
-            printf("\nControl Commands\n");
-            printf("  enable <subsystem>  Enables a subsystem\n");
-            printf("  disable <subsystem> Disables a subsystem\n");
-            printf("  setmode <mode>      Sets the mode for the server\n");
-        } else {
-            printf("Unknown command: '%s'\n", input.c_str());
+        if (commandData.type == COMMAND_STATUS) {
+            command = std::make_unique<StatusCommand>(commandData);
+        } else if (commandData.type == COMMAND_EXIT) {
+            command = std::make_unique<ExitCommand>(commandData);
+        } else if (commandData.type == COMMAND_HELP) {
+            command = std::make_unique<HelpCommand>(commandData);
         }
+
+        command->executeCommand();
 
         printf("\n");
     }
