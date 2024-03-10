@@ -3,4 +3,6 @@ project(NYCSubwayChallenge)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(NYCSubwayChallenge main.cpp)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+add_executable(NYCSubwayChallenge src/main.cpp)
