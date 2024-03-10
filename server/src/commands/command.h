@@ -1,8 +1,9 @@
 #pragma once
 
-#include "parser.h"
 #include <cstdio>
 #include <cstdlib>
+
+#include "parser.h"
 
 class Command {
 public:

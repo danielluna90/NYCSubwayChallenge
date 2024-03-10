@@ -1,5 +1,6 @@
-#include "parser.h"
 #include <string>
+
+#include "parser.h"
 
 char const DELIMITER = ' ';
 
