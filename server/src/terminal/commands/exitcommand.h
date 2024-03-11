@@ -1,13 +1,15 @@
 #pragma once
 
+#include <utility>
+
 #include "../command.h"
 
 class ExitCommand : public Command {
 public:
-    ExitCommand(CommandData data)
-        : Command("Exit", data) {};
+    explicit ExitCommand(CommandData data)
+        : Command("Exit", std::move(data)) {};
 
     void executeCommand() override {
-        exit(1);
+        exit(0);
     }
 };

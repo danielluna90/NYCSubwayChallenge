@@ -4,8 +4,8 @@
 
 class UnknownCommand : public Command {
 public:
-    UnknownCommand(CommandData data)
-        : Command("Unknown", data) {};
+    explicit UnknownCommand(CommandData data)
+        : Command("Unknown", std::move(data)) {};
 
     void executeCommand() override {
         printf("Unknown command: '%s'\n", getCommandData()->args[0].c_str());

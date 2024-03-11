@@ -4,8 +4,8 @@
 
 class StatusCommand : public Command {
 public:
-    StatusCommand(CommandData data)
-        : Command("Status", data) {};
+    explicit StatusCommand(CommandData data)
+        : Command("Status", std::move(data)) {};
 
     void executeCommand() override {
         printf("Subsystems:\n");

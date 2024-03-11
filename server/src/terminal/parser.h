@@ -28,5 +28,5 @@ public:
     CommandData parse(std::string const& str);
 
 private:
-    CommandType getCommandType(std::string const& str);
+    static CommandType getCommandType(std::string const& str);
 };

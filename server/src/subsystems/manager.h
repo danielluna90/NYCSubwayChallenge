@@ -8,8 +8,7 @@
 
 class SubsystemManager {
 public:
-    SubsystemManager() {
-    }
+    SubsystemManager() = default;
 
     void registerSubsystem(std::unique_ptr<Subsystem> subsystem);
 

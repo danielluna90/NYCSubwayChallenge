@@ -1,11 +1,13 @@
 #pragma once
 
+#include <utility>
+
 #include "../command.h"
 
 class HelpCommand : public Command {
 public:
-    HelpCommand(CommandData data)
-        : Command("Help", data) {};
+    explicit HelpCommand(CommandData data)
+        : Command("Help", std::move(data)) {};
 
     void executeCommand() override {
         printf("NYC Subway Challenge Server - Command Help\n");

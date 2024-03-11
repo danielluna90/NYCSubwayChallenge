@@ -9,7 +9,7 @@ private:
 
 protected:
     ServerOptions() { }
-    ~ServerOptions() { }
+    ~ServerOptions() = default;
 
 public:
     ServerOptions(ServerOptions& other) = delete;
