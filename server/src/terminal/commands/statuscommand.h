@@ -9,7 +9,13 @@ public:
 
     void executeCommand() override {
         printf("Subsystems:\n");
-        printf("   API Server: %s\n", true ? "Active" : "Not Active");
+
+        SubsystemManager* subsystems = SubsystemManager::GetInstance();
+
+        for (auto const& subsystem : *subsystems->getSubsystems()) {
+            printf("  %s: %s\n", subsystem.second->getName().c_str(), subsystem.second->isEnabled() ? "Active" : "Not Active");
+        }
+
         printf("\nOther Information\n");
         printf("  Initialized: %s\n", true ? "Yes" : "No");
         printf("         Mode: %s\n", "Run Mode / Simulation Mode");

@@ -7,7 +7,7 @@ public:
     APISubsystem()
         : Subsystem("API") { }
 
-    void enable() override { }
-
-    void disable() override { }
+private:
+    bool enableImpl() override { return true; }
+    void disableImpl() override { }
 };

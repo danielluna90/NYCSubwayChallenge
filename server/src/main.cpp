@@ -9,12 +9,12 @@
 
 int main() {
     CommandParser commandParser;
-    SubsystemManager subsystemManger;
+    SubsystemManager* subsystemManager = SubsystemManager::GetInstance();
 
     printf("Running Base Initialization\n");
     printf("\nRegistering Subsystems:\n");
 
-    subsystemManger.registerSubsystem(std::make_unique<APISubsystem>());
+    subsystemManager->registerSubsystem(std::make_unique<APISubsystem>());
 
     printf("\nReading Configuration from: %s\n", " ");
     printf("================================================\n");
@@ -31,6 +31,8 @@ int main() {
 
         if (commandData.type == COMMAND_STATUS) {
             command = std::make_unique<StatusCommand>(commandData);
+        } else if (commandData.type == COMMAND_ENABLE) {
+            command = std::make_unique<EnableCommand>(commandData);
         } else if (commandData.type == COMMAND_EXIT) {
             command = std::make_unique<ExitCommand>(commandData);
         } else if (commandData.type == COMMAND_HELP) {

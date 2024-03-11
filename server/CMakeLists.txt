@@ -13,6 +13,7 @@ set(SUBSYSTEMS_SRC src/subsystems/subsystem.h src/subsystems/subsystems.h
                    src/subsystems/manager.cpp src/subsystems/manager.h
                    ${API_SUBSYSTEM_SRC})
 
-set(TERMINAL_SRC src/terminal/command.h src/terminal/parser.cpp src/terminal/parser.h src/terminal/terminal.h)
+set(TERMINAL_SRC src/terminal/command.h src/terminal/parser.cpp src/terminal/parser.h src/terminal/terminal.h src/terminal/commands/exitcommand.h src/terminal/commands/helpcommand.h src/terminal/commands/statuscommand.h src/terminal/commands/unknowncommand.h
+        src/terminal/commands/enablecommand.h)
 
 add_executable(NYCSubwayChallenge src/main.cpp ${CORE_SRC} ${SUBSYSTEMS_SRC} ${TERMINAL_SRC})
