@@ -20,7 +20,6 @@ enum CommandType {
 
 struct CommandData {
     CommandType type;
-    OptionsState* optionsState = nullptr;
     std::vector<std::string> args;
 };
 

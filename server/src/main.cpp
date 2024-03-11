@@ -11,7 +11,6 @@
 
 int main() {
     CommandParser commandParser;
-    OptionsState optionsState;
 
     std::unordered_map<std::string, std::unique_ptr<Subsystem>> subsystems;
 
@@ -27,7 +26,6 @@ int main() {
         std::getline(std::cin, input);
 
         CommandData commandData = commandParser.parse(input);
-        commandData.optionsState = &optionsState;
 
         std::unique_ptr<Command> command = std::make_unique<UnknownCommand>(commandData);
 
