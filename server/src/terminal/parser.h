@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+#include "../core/core.h"
+
 enum CommandType {
     COMMAND_EXIT,
     COMMAND_HELP,
@@ -18,6 +20,7 @@ enum CommandType {
 
 struct CommandData {
     CommandType type;
+    OptionsState* optionsState = nullptr;
     std::vector<std::string> args;
 };
 
