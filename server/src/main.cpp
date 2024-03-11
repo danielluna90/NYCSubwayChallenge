@@ -9,15 +9,14 @@
 
 int main() {
     CommandParser commandParser;
-
-    std::unordered_map<std::string, std::unique_ptr<Subsystem>> subsystems;
+    SubsystemManager subsystemManger;
 
     printf("Running Base Initialization\n");
-    printf("  Registering Subsystems\n");
+    printf("\nRegistering Subsystems:\n");
 
-    subsystems.emplace("api", std::make_unique<APISubsystem>());
+    subsystemManger.registerSubsystem(std::make_unique<APISubsystem>());
 
-    printf("  Reading Configuration from: %s\n", " ");
+    printf("\nReading Configuration from: %s\n", " ");
     printf("================================================\n");
 
     while (true) {
