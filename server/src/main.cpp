@@ -5,9 +5,7 @@
 
 #include "core/core.h"
 #include "subsystems/subsystems.h"
-#include "terminal/command.h"
-#include "terminal/commands.h"
-#include "terminal/parser.h"
+#include "terminal/terminal.h"
 
 int main() {
     CommandParser commandParser;
@@ -16,6 +14,9 @@ int main() {
 
     printf("Running Base Initialization\n");
     printf("  Registering Subsystems\n");
+
+    subsystems.emplace("api", std::make_unique<APISubsystem>());
+
     printf("  Reading Configuration from: %s\n", " ");
     printf("================================================\n");
 
