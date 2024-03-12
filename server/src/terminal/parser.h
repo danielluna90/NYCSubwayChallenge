@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "../core/core.h"
+#include "core/core.h"
 
 enum CommandType {
     COMMAND_EXIT,

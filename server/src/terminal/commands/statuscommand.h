@@ -2,6 +2,8 @@
 
 #include "../command.h"
 
+#include "subsystems/subsystems.h"
+
 class StatusCommand : public Command {
 public:
     explicit StatusCommand(CommandData data)

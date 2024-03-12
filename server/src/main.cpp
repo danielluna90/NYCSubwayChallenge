@@ -4,7 +4,7 @@
 #include <unordered_map>
 
 #include "core/core.h"
-#include "subsystems/subsystems.h"
+#include "subsystems/manager.h"
 #include "terminal/terminal.h"
 
 int main() {

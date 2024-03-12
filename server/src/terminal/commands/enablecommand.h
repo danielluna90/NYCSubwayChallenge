@@ -1,7 +1,8 @@
 #pragma once
 
-#include "../../subsystems/subsystems.h"
 #include "../command.h"
+
+#include "subsystems/subsystems.h"
 
 class EnableCommand: public Command {
 public:
