@@ -5,6 +5,8 @@
 
 #include "core/core.h"
 #include "subsystems/manager.h"
+#include "terminal/commands/disablecommand.h"
+#include "terminal/parser.h"
 #include "terminal/terminal.h"
 
 int main() {
@@ -33,6 +35,8 @@ int main() {
             command = std::make_unique<StatusCommand>(commandData);
         } else if (commandData.type == COMMAND_ENABLE) {
             command = std::make_unique<EnableCommand>(commandData);
+        } else if (commandData.type == COMMAND_DISABLE) {
+            command = std::make_unique<DisableCommand>(commandData);
         } else if (commandData.type == COMMAND_EXIT) {
             command = std::make_unique<ExitCommand>(commandData);
         } else if (commandData.type == COMMAND_HELP) {
