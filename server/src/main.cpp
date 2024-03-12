@@ -11,12 +11,15 @@
 
 int main() {
     CommandParser commandParser;
+    ServerOptions* serverOptions = ServerOptions::GetInstance();
     SubsystemManager* subsystemManager = SubsystemManager::GetInstance();
 
     printf("Running Base Initialization\n");
     printf("\nRegistering Subsystems:\n");
 
     subsystemManager->registerSubsystem(std::make_unique<APISubsystem>());
+
+    serverOptions->setIsInitialized(true);
 
     printf("\nReading Configuration from: %s\n", " ");
     printf("================================================\n");

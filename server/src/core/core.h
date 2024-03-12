@@ -17,4 +17,11 @@ public:
     void operator=(ServerOptions const&) = delete;
 
     static ServerOptions* GetInstance();
+
+    bool isInitialized() const { return m_isInitialized; }
+    void setIsInitialized(bool val) { m_isInitialized = val; }
+
+private:
+    bool m_isInitialized = false;
+
 };

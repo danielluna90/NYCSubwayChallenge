@@ -2,6 +2,7 @@
 
 #include "../command.h"
 
+#include "core/core.h"
 #include "subsystems/subsystems.h"
 
 class StatusCommand : public Command {
@@ -19,7 +20,7 @@ public:
         }
 
         printf("\nOther Information\n");
-        printf("  Initialized: %s\n", true ? "Yes" : "No");
+        printf("  Initialized: %s\n", ServerOptions::GetInstance()->isInitialized() ? "Yes" : "No");
         printf("         Mode: %s\n", "Run Mode / Simulation Mode");
     }
 };
